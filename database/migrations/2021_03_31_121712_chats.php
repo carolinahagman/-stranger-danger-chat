@@ -27,6 +27,6 @@ class Chats extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('chats');
     }
 }

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@extends('layouts.app')
 
-    <title>Stranger Danger Chat</title>
-
+@section('content')
 <body style="height: 100vh">
     <div style="height: 100vh" class="flex justify-center items-center bg-blue-200">
         <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
@@ -20,6 +14,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    @endsection

@@ -10,6 +10,12 @@
                     {{ __('Login') }}
                 </header>
 
+                @if (session('status'))
+                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
+
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
                     @csrf
 

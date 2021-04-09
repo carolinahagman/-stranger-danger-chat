@@ -103,7 +103,6 @@ class UserController extends Controller
             ]);
 
             if ($username === $request->username) {
-
                 $user = User::findOrFail($id);
                 $user->delete();
 

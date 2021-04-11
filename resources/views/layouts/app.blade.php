@@ -20,7 +20,7 @@
         <header class="bg-blue-200 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold no-underline">
+                    <a href="{{ url('/dashboard') }}" class="text-lg font-semibold no-underline">
                         {{ ('Stranger Danger!') }}
                     </a>
                 </div>

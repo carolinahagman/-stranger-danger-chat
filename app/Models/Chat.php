@@ -15,9 +15,13 @@ class Chat extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'message_id'
     ];
 
-    public $timestamps = false;
+   public function users(){
+       return $this->belongsToMany(User::class,'user_chats');
+   }
+
+
+
+
 }

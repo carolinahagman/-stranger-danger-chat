@@ -18,11 +18,12 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * @param int $user
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user)
     {
+        dd($user);
         return view('home');
     }
 }

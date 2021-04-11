@@ -14,9 +14,9 @@ class Chats extends Migration
     public function up()
     {
         Schema::create('chats', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('message_id');
+            $table->id();    
+            $table->timestamps();
+
         });
     }
 

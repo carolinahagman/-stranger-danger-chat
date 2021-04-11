@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Chat;
+use App\Models\UserChat;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ChatFactory extends Factory
+class UserChatFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Chat::class;
+    protected $model = UserChat::class;
 
     /**
      * Define the model's default state.
@@ -22,6 +22,8 @@ class ChatFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => $this->faker->randomDigitNotNull,
+            'chat_id' => $this->faker->randomDigitNotNull,
         ];
     }
 }

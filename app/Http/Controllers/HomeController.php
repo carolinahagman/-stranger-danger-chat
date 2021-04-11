@@ -2,27 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Chats;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index(int $user)
     {
-        $this->middleware('auth');
+        $requestingUser=Auth::user()->id;
+        $userData = \App\Models\User::find($requestingUser);
+        $chatData = array();
+        if($requestingUser !== $user){
+            return view('home',['user'=>$userData, 'chats'=>$chatData]);
+        }
+        
+        $chatData = $userData->chats;
+        // $messages = $chatData->first()->messages;
+        // dd($messages);
+        return view('home',['user'=>$userData, 'chats'=>$chatData]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
-    }
+    
 }

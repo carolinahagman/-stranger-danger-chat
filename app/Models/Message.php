@@ -20,7 +20,8 @@ class Message extends Model
         'message',
     ];
 
-    public function chat(){
+    public function chat()
+    {
         return $this->belongsTo(Chat::class, 'chat_id');
     }
 }

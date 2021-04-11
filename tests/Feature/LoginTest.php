@@ -8,11 +8,6 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     public function test_view_login_form()
     {
         $response = $this->get('/login');
@@ -23,16 +18,16 @@ class LoginTest extends TestCase
     public function test_login_user()
     {
         $user = new User();
-        $user->username = 'gusjak';
-        $user->email = 'gusjak@yrgo.se';
-        $user->password = Hash::make('1234qwer');
+        $user->username = 'testuser';
+        $user->email = 'example@test.se';
+        $user->password = Hash::make('123');
         $user->save();
 
         $response = $this
             ->followingRedirects()
             ->post('login', [
-                'email' => 'gusjak@yrgo.se',
-                'password' => '1234qwer',
+                'email' => 'example@test.se',
+                'password' => '123',
             ]);
 
         $response->assertSeeText('You are logged in!');

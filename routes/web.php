@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::get('/logout', \App\Http\Controllers\LogoutController::class);
 
 // User Profile/Settings
 Route::get('/user/{id}', [\App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');

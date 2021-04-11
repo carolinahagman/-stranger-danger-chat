@@ -55,7 +55,7 @@ class UserController extends Controller
                 $user->email = $request['email'];
 
                 $user->save();
-                return back()->with('success', 'Your profile has been updated.');
+                return redirect()->route('user.update')->with('success', 'Your profile has been updated.');
             } else {
                 return back();
             }
@@ -76,7 +76,7 @@ class UserController extends Controller
     public function passwordUpdate(Request $request)
     {
         $validate = $request->validate([
-            'currentPassword' => 'required|min:8',
+            'currentPassword' => 'required',
             'newPassword' => 'required|min:8|required_with:password_confirmation|same:password_confirmation',
         ]);
 
@@ -86,7 +86,7 @@ class UserController extends Controller
             if (Hash::check($request['currentPassword'], $user->password) && $validate) {
                 $user->password = Hash::make($request['password']);
                 $user->save();
-                return back()->with('success', 'Your password has been updated.');
+                return redirect()->route('password.update')->with('success', 'Your password has been updated.');
             } else {
                 return back()->with('error', 'The entered password does not match your current password.');
             }

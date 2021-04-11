@@ -8,22 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
-
-    public static function index(int $chatId){
-
+    public static function index(int $chatId)
+    {
         $chatData = \App\Models\Chat::find($chatId);
 
-        return view('chat',['chat' => $chatData]);
-    
+        return view('chat', ['chat' => $chatData]);
     }
-    public function data(int $chatId){
+    public function data(int $chatId)
+    {
         $chatData = \App\Models\Chat::find($chatId);
         return ['chat'=> $chatData];
     }
 
-    public function sendMessage(Request $request, int $chat, int $user){
-
-        $message = new Message;
+    public function sendMessage(Request $request, int $chat, int $user)
+    {
+        $message = new Message();
         $message->user_id = $user;
         $message->chat_id = $chat;
         $message->message = $request->input('message');

@@ -19,11 +19,14 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-//Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/{user}', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.dashboard');
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 Route::get('/logout', \App\Http\Controllers\LogoutController::class);
+
+// Chat 
+Route::get('/home/chats/{chat}', [\App\Http\Controllers\ChatsController::class, 'index'])->name('chat');
+Route::post('/home/chats/{chat}/{user}', [\App\Http\Controllers\ChatsController::class, 'sendMessage'])->name('chat.sendMessage');
+Route::get('/home/chats/{chat}/data', [\App\Http\Controllers\ChatsController::class, 'data'])->name('chat.data');
 
 // User Profile/Settings
 Route::get('/user/{id}', [\App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');

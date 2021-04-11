@@ -26,18 +26,15 @@
                 <div class="w-full p-6">
                     @foreach ($chats as $chat)
                         <!-- foreach chat -->
-                        <a href=""
+                        <a href="/home/chats/{{ $chat->id }}"
                             class="p-6 mb-3 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
                             <div class="flex-shrink-0">
                                 <img class="h-12 w-12" src="http://cdn.onlinewebfonts.com/svg/img_397748.png"
                                     alt="ChitChat Logo">
                             </div>
-
-
-
                             <div>
                                 <div class="text-xl font-medium text-black">
-                                    {{ $chat->users->where('id', '!=', $user->id)->first()->username }}
+                                    {{ $chat->users->where('id', '!=', Auth::user()->id)->first()->username }}
                                 </div>
                                 <!-- show latest message  -->
                                 <p class="text-gray-400">

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ ('Stranger Danger!') }}</title>
+    <title>{{ 'Stranger Danger!' }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,26 +22,28 @@
         <header class="bg-blue-200 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/dashboard') }}" class="text-lg font-semibold no-underline">
-                        {{ ('Stranger Danger!') }}
+                    <a href="{{ url('/home') }}" class="text-lg font-semibold no-underline">
+                        {{ 'Stranger Danger!' }}
                     </a>
                 </div>
                 <nav class="space-x-4 text-sm sm:text-base">
                     @guest
-                    <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @if (Route::has('register'))
-                    <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
+                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @if (Route::has('register'))
+                            <a class="no-underline hover:underline"
+                                href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
                     @else
-                    <span>{{ Auth::user()->name }}</span>
+                        <span>{{ Auth::user()->name }}</span>
 
 
-                    <a href="{{ route('user.profile', Auth::user()->id) }}" class="no-underline hover:underline">{{ __('View Profile') }}</a>
-                    <a href="{{ route('logout') }}" class="no-underline hover:underline" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                        {{ csrf_field() }}
-                    </form>
+                        <a href="{{ route('user.profile', Auth::user()->id) }}"
+                            class="no-underline hover:underline">{{ __('View Profile') }}</a>
+                        <a href="{{ route('logout') }}" class="no-underline hover:underline" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
                     @endguest
                 </nav>
             </div>

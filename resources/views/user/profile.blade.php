@@ -50,9 +50,6 @@
                         </div>
                         <form class="flex flex-wrap flex-col justify-center items-center" method="POST" action="{{ route('deleteuser', $user->id) }}">
                             @csrf
-                            <label for=" username" class="block text-gray-700 text-sm font-bold mb-2">
-                                {{ __('Username') }}
-                            </label>
                             <input class="text-gray-700 w-64 appearance-none border rounded-lg py-2 text-center text-sm mb-2" type="text" name="username" placeholder="Enter username to comfirm deletion">
                             @error('username')
                             <p class="text-red-500 text-xs italic mb-2">
@@ -96,6 +93,3 @@
     </div>
 </main>
 @endsection
-<script type="text/javascript">
-    document.title = `Stranger Danger, {{ $user->username }}!`;
-</script>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Controllers\Session;
 
 class UserController extends Controller
 {
@@ -105,6 +106,7 @@ class UserController extends Controller
             if ($username === $request->username) {
                 $user = User::findOrFail($id);
                 $user->delete();
+                session_unset();
 
                 return redirect()->route('login')->with('status', 'Your account has successfully been deleted.');
             }

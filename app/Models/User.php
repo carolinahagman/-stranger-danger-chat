@@ -42,11 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function chats(){
+    public function chats()
+    {
         return $this -> belongsToMany(Chat::class, 'user_chats');
     }
 
-    public function messages(){
+    public function messages()
+    {
         return $this -> hasMany(Message::class);
     }
 }

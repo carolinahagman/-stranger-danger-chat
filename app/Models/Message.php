@@ -20,10 +20,12 @@ class Message extends Model
         'message',
     ];
 
-    public function chat(){
+    public function chat()
+    {
         return $this->belongsTo(Chat::class, 'chat_id');
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 }

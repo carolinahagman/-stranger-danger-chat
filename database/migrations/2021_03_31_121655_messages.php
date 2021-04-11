@@ -31,5 +31,4 @@ class Messages extends Migration
     {
         Schema::dropIfExists('messages');
     }
-    
 }

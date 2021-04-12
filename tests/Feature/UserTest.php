@@ -9,11 +9,13 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_view_user_profile()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'test3user';
+        $user->email = 'example3@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
@@ -27,8 +29,8 @@ class UserTest extends TestCase
     public function test_view_user_edit()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'testuser4';
+        $user->email = 'example4@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
@@ -43,8 +45,8 @@ class UserTest extends TestCase
     public function test_user_update()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'testuser5';
+        $user->email = 'example5@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
@@ -62,8 +64,8 @@ class UserTest extends TestCase
     public function test_view_password_edit()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'testuser6';
+        $user->email = 'example6@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
@@ -75,21 +77,43 @@ class UserTest extends TestCase
         $response->assertSeeText('Change Password');
     }
 
-    public function test_delete_user_account()
+    public function test_password_change()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'testuser5';
+        $user->email = 'example5@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
         $response = $this
             ->followingRedirects()
             ->actingAs($user)
-            ->post('/user/' . $user->id);
+            ->post('/edit/password/user/', [
+                'currentPassword' => '123',
+                'newPassword' => '1234qwer',
+                'password_confirmation' => '1234qwer'
+            ]);
+
+        $response->assertSeeText('Your password has been updated.');
+    }
+
+    public function test_delete_user_account()
+    {
+        $user = new User();
+        $user->username = 'testuser8';
+        $user->email = 'example8@test.se';
+        $user->password = Hash::make('123');
+        $user->save();
+
+        $response = $this
+            ->followingRedirects()
+            ->actingAs($user)
+            ->post('/user/' . $user->id, [
+                'username' => 'testuser8'
+            ]);
 
         $user->delete();
 
-        $response->assertDontSeeText('Your account has successfully been deleted.');
+        $response->assertSeeText('Login');
     }
 }

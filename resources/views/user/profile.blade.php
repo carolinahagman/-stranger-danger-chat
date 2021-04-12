@@ -60,34 +60,6 @@
                         </form>
                     </div>
                 </div>
-
-                <div class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    {{ $user->username }}'s Current Chats
-                </div>
-
-                <div class="py-5">
-                    <div class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8">
-                        <div class="flex flex-wrap flex-row">
-                            <p class="text-black">Chat 1:</p>
-                            <p class="text-green-700 italic pl-2">1337haxx0r</p>
-                        </div>
-
-                        <div class="flex flex-wrap flex-row">
-                            <p class="text-black">Chat 2:</p>
-                            <p class="text-red-700 italic pl-2">neverOnline</p>
-                        </div>
-
-                        <div class="flex flex-wrap flex-row">
-                            <p class="text-black">Chat 3:</p>
-                            <p class="text-green-700 italic pl-2">Player</p>
-                        </div>
-
-                        <div class="flex flex-wrap flex-row">
-                            <p class="text-black">Chat 4:</p>
-                            <p class="text-green-700 italic pl-2">é@£©é∂8f901uj</p>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
     </div>

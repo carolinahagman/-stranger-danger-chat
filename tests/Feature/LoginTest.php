@@ -3,11 +3,14 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_view_login_form()
     {
         $response = $this->get('/login');
@@ -18,19 +21,19 @@ class LoginTest extends TestCase
     public function test_login_user()
     {
         $user = new User();
-        $user->username = 'testuser';
-        $user->email = 'example@test.se';
+        $user->username = 'testuser1';
+        $user->email = 'example1@test.se';
         $user->password = Hash::make('123');
         $user->save();
 
         $response = $this
             ->followingRedirects()
             ->post('login', [
-                'email' => 'example@test.se',
+                'email' => 'example1@test.se',
                 'password' => '123',
             ]);
 
-        $response->assertSeeText('You are logged in!');
+        $response->assertSeeText($user['username']);
     }
 
     public function test_login_failed()
@@ -42,6 +45,6 @@ class LoginTest extends TestCase
                 'password' => 'invalid-password',
             ]);
 
-        $response->assertDontSeeText('You are logged in!');
+        $response->assertDontSeeText('Welcome');
     }
 }

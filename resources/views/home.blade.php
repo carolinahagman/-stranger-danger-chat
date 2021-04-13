@@ -29,11 +29,14 @@
                         <img class="h-12 w-12" src="http://cdn.onlinewebfonts.com/svg/img_397748.png" alt="ChitChat Logo">
                     </div>
                     <div>
-                        <div class="text-xl font-medium text-black">
+                        <h2 class="text-xl font-semibold text-blue-400 mb-2">
                             {{ $chat->users->where('id', '!=', Auth::user()->id)->first()->username }}
-                        </div>
+                        </h2>
                         <!-- show latest message  -->
-                        <p class="text-gray-400">
+                        <p class="text-gray-500 font-bold text-sm italic">
+                            {{ $chat->messages->last()->user->username }}:
+                        </p>
+                        <p class="text-gray-400 italic">
                             {{ implode(' ', array_slice(explode(' ', $chat->messages->last()->message), 0, 5)) }}
                         </p>
                     </div>

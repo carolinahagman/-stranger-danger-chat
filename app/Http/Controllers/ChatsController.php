@@ -25,8 +25,8 @@ class ChatsController extends Controller
         return ['chat'=> $chatData];
     }
 
-    public function newChat(Request $request){
-
+    public function newChat(Request $request)
+    {
         $chat = new Chat();
 
         $chat ->save();
@@ -42,12 +42,10 @@ class ChatsController extends Controller
         $chat->refresh();
 
         return view('chat', ['chat' => $chat]);
-        
     }
 
     public function sendMessage(Request $request, int $chat, int $user)
     {
-     
         $message = new Message();
         $message->user_id = $user;
         $message->chat_id = $chat;
@@ -57,7 +55,4 @@ class ChatsController extends Controller
         return ChatsController::index($chat);
         // return "hello world";
     }
-
-    
-
 }

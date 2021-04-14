@@ -34,7 +34,7 @@ class ChatsController extends Controller
 
         $requestingUser = Auth::user();
         // random number between 1 and number of users in system
-        $randomId = 1;
+        $randomId = rand(1, Chat::count());
         $randomUser =  User::find($randomId);
 
         $chat->users()->saveMany([$randomUser, $requestingUser]);

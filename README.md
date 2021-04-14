@@ -1,62 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Stranger Danger Chat
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<img src="https://media.giphy.com/media/3o6fJ66RKYXJbkQ1RC/giphy.gif"  width="50%">
 
-## About Laravel
+## Assignment
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A school assignment to write a Laravel application of our own choosing.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+We have chosen to make a randomized chat.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requirments
 
-## Learning Laravel
+<details><summary><strong>The application should contain the following features of Laravel:</strong></b></summary>
+- Controllers
+- Migrations
+- HTTP Tests (on all routes)
+- Laravel Mix
+- Middleware
+- Models (with relationships)
+- Routes (with route model binding)
+- Eloquent
+- Relationships
+- Validation
+- Views (Blade)
+</details>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<details><summary><strong>Requirments:</strong></b></summary>
+- The application idea should be discussed with the teacher and be given an OK before you get started.
+- Each group should write a code review of at least 20 comments on the next groups project the day before presentations.
+- The code syntax must adhere to the PSR-12 standard. If not, your project wont be approved and you'll get an extra assignment.
+- Install the [Clockwork](https://github.com/itsgoingd/clockwork) extension in order to find issues such as [N+1 problem](https://laracasts.com/lessons/eager-loading) in your Laravel application.
+- Oh, by the way, you can't use any fancy-pantzy JavaScript frameworks, **this is a backend assignment**. If you do want to write JavaScript it should be vanilla and just some basic stuff. Discuss this with your teacher.
+</details>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+1. Clone this repository through the terminal: `git clone https://github.com/gusjak/stranger-danger-chat.git`.
+2. Change your current directory to the repository: `cd stranger-danger-chat/`.
+3. Install [Composer](https://getcomposer.org/).
+4. Update composer with `composer update` in your terminal and wait for it to finish. 
+5. Type `php artisan serve` in your terminal and it should open up a localhost for you. The default is: [http://localhost:8000](http://localhost:8000).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Authors
 
-### Premium Partners
+- [Carolina Hagman](https://github.com/carolinahagman)
+- [Jakob Gustafsson](https://github.com/gusjak)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+## Code Review
+By: [Gilda Ahmadniaye Jourshary](https://github.com/gillybeans) & [Joakim Sjögren](https://github.com/JoakimSjogren)
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+11. 
+12. 
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19. 
+20. 
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License - see the **[LICENSE](https://github.com/gusjak/stranger-danger-chat/blob/main/LICENSE)** here.

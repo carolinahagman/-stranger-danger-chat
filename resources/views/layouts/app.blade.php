@@ -10,8 +10,7 @@
 
     <title>{{ 'Stranger Danger!' }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -22,7 +21,8 @@
         <header class="bg-blue-200 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/home') }}" class="text-lg font-semibold no-underline">
+                    <a href=" @if (Auth::user()) {{ url('/home') }} @else {{ url('/') }} @endif"
+                        class="text-lg font-semibold no-underline">
                         {{ 'Stranger Danger!' }}
                     </a>
                 </div>
@@ -39,8 +39,9 @@
 
                         <a href="{{ route('user.profile', Auth::user()->id) }}"
                             class="no-underline hover:underline">{{ __('View Profile') }}</a>
-                        <a href="{{ route('logout') }}" class="no-underline hover:underline" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <a href="{{ route('logout') }}" class="no-underline hover:underline"
+                            onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>
@@ -51,6 +52,9 @@
 
         @yield('content')
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 
 </html>

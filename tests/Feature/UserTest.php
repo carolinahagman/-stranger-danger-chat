@@ -13,10 +13,7 @@ class UserTest extends TestCase
 
     public function test_view_user_profile()
     {
-        $user = new User();
-        $user->username = 'test3user';
-        $user->email = 'example3@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
         $user->save();
 
         $response = $this
@@ -28,10 +25,7 @@ class UserTest extends TestCase
 
     public function test_view_user_edit()
     {
-        $user = new User();
-        $user->username = 'testuser4';
-        $user->email = 'example4@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
         $user->save();
 
         $response = $this
@@ -44,10 +38,7 @@ class UserTest extends TestCase
 
     public function test_user_update()
     {
-        $user = new User();
-        $user->username = 'testuser5';
-        $user->email = 'example5@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
         $user->save();
 
         $response = $this
@@ -63,10 +54,7 @@ class UserTest extends TestCase
 
     public function test_view_password_edit()
     {
-        $user = new User();
-        $user->username = 'testuser6';
-        $user->email = 'example6@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
         $user->save();
 
         $response = $this
@@ -79,41 +67,38 @@ class UserTest extends TestCase
 
     public function test_password_change()
     {
-        $user = new User();
-        $user->username = 'testuser5';
-        $user->email = 'example5@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
+        $user->password = '1234qwer';
         $user->save();
 
         $response = $this
             ->followingRedirects()
             ->actingAs($user)
             ->post('/edit/password/user/', [
-                'currentPassword' => '123',
-                'newPassword' => '1234qwer',
-                'password_confirmation' => '1234qwer'
+                'currentPassword' => '1234qwer',
+                'newPassword' => 'awesome-password',
+                'password_confirmation' => 'awesome-password'
             ]);
 
-        $response->assertSeeText('Your password has been updated.');
+        $response->assertStatus(200);
+        $response = $this->get('/edit/password/user/');
+        $response->assertViewIs('user.password');
     }
 
     public function test_delete_user_account()
     {
-        $user = new User();
-        $user->username = 'testuser8';
-        $user->email = 'example8@test.se';
-        $user->password = Hash::make('123');
-        $user->save();
+        $user = User::factory()->create();
 
-        $response = $this
+        $response = $this->actingAs($user)
             ->followingRedirects()
-            ->actingAs($user)
-            ->post('/user/' . $user->id, [
-                'username' => 'testuser8'
-            ]);
+            ->post(
+                '/user/' . $user->id,
+                ['username' => $user->username]
+            );
 
-        $user->delete();
+        $response = $this->assertDatabaseMissing('users', ['username' => $user->username]);
 
-        $response->assertSeeText('Login');
+        $response = $this->get('/login');
+        $response->assertStatus(302);
     }
 }

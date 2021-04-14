@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class LogoutTest extends TestCase
@@ -13,16 +13,17 @@ class LogoutTest extends TestCase
 
     public function test_logout()
     {
-        $user = new User();
-        $user->username = 'test2user';
-        $user->email = 'example2@test.se';
-        $user->password = Hash::make('123');
+        $user = User::factory()->create();
         $user->save();
 
         $response = $this
             ->followingRedirects()
+            ->actingAs($user)
             ->get('/logout');
 
+        $response = Auth::logout();
+
+        $response = $this->get('/');
         $response->assertViewIs('welcome');
     }
 }

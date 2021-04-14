@@ -48,26 +48,26 @@ We have chosen to make a randomized chat.
 ## Code Review
 By: [Gilda Ahmadniaye Jourshary](https://github.com/gillybeans) & [Joakim Sjögren](https://github.com/JoakimSjogren)
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
+1. There is no .env-example file to copy and paste into .env to make the site viewable for us.
+2. Tests does not work without the Unit map.
+3. Your code looks very clean and nice, we like it.
+4. We noticed that there isn’t a testing for joining chats.
+5. We noticed that there isn’t a testing for writing messages.
+6. In LogoutController.php there is some commented code and we’re not sure why.
+7. In UserController.php it’s not necessary for some else-statements, for instance on row 20 else { is not necessary after return.
+8. The site looks pretty, the layout and design is very good.
+9. We are having difficulty starting a new chat after logging in.
+10. In the ChatsController.php on row 18 and 24 there’s no need to write \App\Models\Chat, it should be enough to only write Chat.
+11. On the website when you go to your profile to change your password you don’t see the input fields.
+12. On row 28 in ChatsController.php, the $request parameter is not being used.
+13. This is a fun idea of an application, ooo scary, stranger danger time ~
+14. On UserTest.php row 24, a suggestion is to make it more easy to read maybe try to consider using “/user/$user->id” instead.
+15. Amazing usage of tailwind, the design of the website looks very simple and aesthetic.
+16. Good job with following the PSR-12 standard.
+17. Your blade-files were very organized and clean. Easy to follow. Very nice. 
+18. Sad that we couldn't see or use the full application :(
+19. In ChatsController.php on row 56 there’s a commented code ;)
+20. Great job you guys rock! 
 
 ## License
 

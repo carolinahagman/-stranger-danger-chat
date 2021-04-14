@@ -18,7 +18,7 @@
 
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="bg-blue-200 py-6">
+        <header style="height: 10vh" class="bg-blue-200 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
                     <a href=" @if (Auth::user()) {{ url('/home') }} @else {{ url('/') }} @endif"
@@ -41,7 +41,7 @@
                             class="no-underline hover:underline">{{ __('View Profile') }}</a>
                         <a href="{{ route('logout') }}" class="no-underline hover:underline"
                             onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>

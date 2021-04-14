@@ -11,6 +11,7 @@ class HomeController extends Controller
     public static function index()
     {
         $requestingUser=Auth::user()->id;
+
         $userData = \App\Models\User::find($requestingUser);
         $chatData = array();
 

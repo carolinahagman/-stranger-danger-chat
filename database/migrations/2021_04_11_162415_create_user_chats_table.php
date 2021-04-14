@@ -18,6 +18,11 @@ class CreateUserChatsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('chat_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

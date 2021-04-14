@@ -24,7 +24,8 @@
                             {{ __('Username') }}:
                         </label>
 
-                        <input id="username" type="text" class="form-input w-full @error('username')  border-red-500 @enderror" name="username" value="{{ $user->username }}" autocomplete="username" autofocus>
+                        <input id="username" type="text" class="text-gray-700 appearance-none border rounded-lg
+                                        py-2 text-center text-sm mb-2 w-full @error('username')  border-red-500 @enderror" name="username" value="{{ $user->username }}" autocomplete="username" autofocus>
 
                         @error('username')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -38,7 +39,8 @@
                             {{ __('Email') }}:
                         </label>
 
-                        <input id="email" type="email" class="form-input w-full @error('email') border-red-500 @enderror" name="email" value="{{ $user->email }}" autocomplete="email">
+                        <input id="email" type="email" class="text-gray-700 appearance-none border rounded-lg
+                                        py-2 text-center text-sm mb-2 w-full @error('email') border-red-500 @enderror" name="email" value="{{ $user->email }}" autocomplete="email">
 
                         @error('email')
                         <p class="text-red-500 text-xs italic mt-4">

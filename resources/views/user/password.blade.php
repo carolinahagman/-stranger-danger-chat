@@ -29,7 +29,8 @@
                             {{ __('Current Password') }}:
                         </label>
 
-                        <input id="currentPassword" type="password" class="form-input w-full @error('currentPassword') border-red-500 @enderror" name="currentPassword" autocomplete="new-password">
+                        <input id="currentPassword" type="password" class="text-gray-700 appearance-none border rounded-lg
+                                        py-2 text-center text-sm mb-2 w-full @error('currentPassword') border-red-500 @enderror" name="currentPassword" autocomplete="new-password">
 
                         @error('currentPassword')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -43,7 +44,8 @@
                             {{ __('New Password') }}:
                         </label>
 
-                        <input id="newPassword" type="password" class="form-input w-full @error('newPassword') border-red-500 @enderror" name="newPassword" autocomplete="new-password">
+                        <input id="newPassword" type="password" class="text-gray-700 appearance-none border rounded-lg
+                                        py-2 text-center text-sm mb-2 w-full @error('newPassword') border-red-500 @enderror" name="newPassword" autocomplete="new-password">
 
                         @error('newPassword')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -57,7 +59,8 @@
                             {{ __('Confirm New Password') }}:
                         </label>
 
-                        <input id="password-confirm" type="password" class="form-input w-full" name="password_confirmation" autocomplete="new-password">
+                        <input id="password-confirm" type="password" class="text-gray-700 appearance-none border rounded-lg
+                                py-2 text-center text-sm mb-2 w-full" name="password_confirmation" autocomplete="new-password">
                     </div>
 
                     <div class="flex flex-wrap">

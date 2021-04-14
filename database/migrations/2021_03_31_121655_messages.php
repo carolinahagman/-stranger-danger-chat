@@ -19,6 +19,11 @@ class Messages extends Migration
             $table->foreignId('chat_id');
             $table->string('message');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

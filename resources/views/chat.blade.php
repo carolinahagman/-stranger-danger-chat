@@ -23,8 +23,9 @@
             <div class="w-full p-6">
                 @foreach ($chat->messages as $message)
                 <div class="mb-5">
-                    <h4 class="font-bold ">{{ $message->user->username }}</h4>
-                    {{ $message->message }}
+                    <h4 class="font-bold mb-2">{{ $message->user->username }}</h4>
+                    <p class="font-medium text-md mb-1">{{ $message->message }}</p>
+                    <p class="text-gray-700 text-xs italic">{{ $message->created_at }}</p>
                 </div>
 
                 @endforeach

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Events\ChatMessage;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +27,7 @@ Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->n
 Route::get('/logout', \App\Http\Controllers\LogoutController::class);
 
 // Chat
+Route::get('/home/chats/new', [\App\Http\Controllers\ChatsController::class, 'newChat'])->name('chat.newChat');
 Route::get('/home/chats/{chat}', [\App\Http\Controllers\ChatsController::class, 'index'])->name('chat');
 Route::post('/home/chats/{chat}/{user}', [\App\Http\Controllers\ChatsController::class, 'sendMessage'])->name('chat.sendMessage');
 Route::get('/home/chats/{chat}/data', [\App\Http\Controllers\ChatsController::class, 'data'])->name('chat.data');

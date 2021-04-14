@@ -12,7 +12,9 @@ use Illuminate\Queue\SerializesModels;
 
 class ChatMessage implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
 
     public $message;
@@ -22,9 +24,8 @@ class ChatMessage implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct( $message)
+    public function __construct($message)
     {
-        
         $this->message = $message;
     }
 
@@ -38,7 +39,7 @@ class ChatMessage implements ShouldBroadcast
         return ['stranger-danger-chat'];
     }
 
-    public function broadcastAs() 
+    public function broadcastAs()
     {
         return 'chat-message';
     }

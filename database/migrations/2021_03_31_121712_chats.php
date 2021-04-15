@@ -16,6 +16,11 @@ class Chats extends Migration
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->foreign('id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
